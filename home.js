@@ -56,12 +56,12 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 //     for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
 //         if (zipCode === deliveryAreaZipCodes[i]) {
 //             return "You're in our delivery zone!"
-//         } else return "Sorry, we can't deliver to you!"
+//         }
 //     }
-
+//     return "Sorry, we can't deliver to you!"
 // }
 
-// console.log(canWeDeliver())
+// console.log(canWeDeliver(85203))
 
 
 /* 
@@ -125,7 +125,9 @@ const deals = [
 
 //CODE HERE
 
+deals[0].title = deals[0].title.replace('15%', '10%')
 
+console.log(deals)
 
 
 /*
@@ -141,4 +143,8 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
+
 //CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April')
+
+console.log(deals)
