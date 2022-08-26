@@ -21,17 +21,17 @@
 
 //CODE HERE
 class Employee {
-    constructor(nm, shifts) {
-        this.nm = name
+    constructor(name, shifts) {
+        this.name = name
         this.shifts = shifts
     }
     getSchedule() {
-        console.log(nm + 'works on' + shifts)
+        console.log(`${this.name} works on ${this.shifts}`)
 
     }
 
 }
-getSchedule()
+
 
 
 
@@ -46,24 +46,15 @@ getSchedule()
 */
 
 //CODE HERE
-class Employee {
-    constructor(nm, shifts) {
-        this.nm = jess
-        this.shifts = 'weekday mornings, weekday afternoons'
-    }
-    getSchedule() {
-        console.log(nm + 'works on' + shifts)
+const empOne = new Employee('Jess', 'Weekdays')
 
-    }
-
-}
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
-getSchedule(Employee)
-//CODE HERE
 
+//CODE HERE
+empOne.getSchedule()
 
 /*
     Make a copy of the empOne object
@@ -78,8 +69,9 @@ getSchedule(Employee)
 */
 
 //CODE HERE
-
-
+const empTwo = { ...empOne }
+empTwo.name = 'Nick'
+console.log(empTwo)
 
 //////////////////PROBLEM 2////////////////////
 /*
@@ -105,8 +97,18 @@ getSchedule(Employee)
 */
 
 //CODE HERE
-
-
+class Manager extends Employee {
+    constructor(name, shifts, employees) {
+        super(name, shifts)
+        this.employees = employees
+    }
+    getEmployees() {
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+    addEmployees(emp) {
+        this.employees.push(emp)
+    }
+}
 
 /*
     Create a new instance of your class.
@@ -120,13 +122,13 @@ getSchedule(Employee)
 */
 
 //CODE HERE
-
+const manager = new Manager('winston', 'weekdays', ['cici, schmidt'])
 
 /*
     Call the `getEmployees` method on the
     `manager` object.
 */
-
+manager.getEmployees()
 //CODE HERE
 
 /*
@@ -134,8 +136,8 @@ getSchedule(Employee)
     `manager` object passing in the string
     'Coach' or whatever name you'd like.
 */
-
-//CODE HERE 
+manager.addEmployees(' coach')
+//CODE HERE
 
 /*
     Call the `getEmployees` method on the
@@ -144,3 +146,4 @@ getSchedule(Employee)
 */
 
 //CODE HERE
+manager.getEmployees()
