@@ -113,7 +113,7 @@ let foodArr = [
         category: 'Entree',
         popularity: 500,
         rating: 8,
-        tags: ['meat', 'anti-vegan']
+        tags: ['meat', 'anti-vegan', 'hot']
     },
     {
         name: 'Vegi Pizza',
@@ -130,7 +130,7 @@ let foodArr = [
         category: 'Entree',
         popularity: 200,
         rating: 5,
-        tags: ['pineapples', 'not on', 'pizza']
+        tags: ['pineapple', 'not on', 'pizza']
     },
     {
         name: 'cheese',
@@ -158,14 +158,15 @@ let foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter(tagObj())
-
-function tagObj(tag) {
-    return foodArr.tag
-}
-
-
+const filteredFood = foodArr.filter((food) => {
+    if (food.tags.includes('hot')) {
+        return food
+    }
+})
 console.log(filteredFood)
+
+
+
 //////////////////PROBLEM 5////////////////////
 /*
     Now let's write a function that's a little
@@ -206,7 +207,15 @@ console.log(filteredFood)
 */
 
 //CODE HERE
-
+const filterByProperty = (property, number, type) => {
+    const filteredFood = foodArr.filter((food) => {
+        if (type === 'above') {
+            return food[property] >= number
+        } else {
+            return food[property] <= number
+        }
+    })
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -216,3 +225,5 @@ console.log(filteredFood)
 */
 
 //CODE HERE
+
+console.log(filterByProperty('popularity', 3, 'below'))
